@@ -1,0 +1,22 @@
+{
+    "name" : "postgres-connect",
+    "config" : {
+       "connector.class" : "io.debezium.connector.postgresql.PostgresConnector",
+       "tasks.max" : "1",
+       //"topics" : "topic",
+       "database.hostname" : "172.30.3.3",
+       "database.port" : "5432",
+       "database.user" : "postgres",
+       "database.password" : "password",
+       "database.server.name" : "postgres",
+       "database.dbname" : "postgres",
+       //"schema.include.list" : "public.inventory",
+       "table.include.list" : "public.employees",
+       "transforms" : "unwrap",
+       "transforms.unwrap.add.fields" : "op,table,source.ts_ms",
+       "transforms.unwrap.delete.handling.mode" : "rewrite",
+       "transforms.unwrap.drop.tombstones" : "false",
+       "transforms.unwrap.type" : "io.debezium.transforms.ExtractNewRecordState",
+       "message.key.columns" : "inventory.no_pk:created_at"
+    }
+}
