@@ -45,7 +45,7 @@ kubectl create secret generic creds --from-file=key.json=key.json
 
 - Pull Kafka charts
 ```
-https://github.com/confluentinc/cp-helm-charts
+git pull https://github.com/confluentinc/cp-helm-charts
 ```
 
 - Deploy Kafka 
