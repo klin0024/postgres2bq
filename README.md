@@ -43,9 +43,14 @@ docker build . -t pg2bq-connect
 kubectl create secret generic creds --from-file=key.json=key.json
 ```
 
+- Pull Kafka charts
+```
+https://github.com/confluentinc/cp-helm-charts
+```
+
 - Deploy Kafka 
 ```
-helm install confluent . -f value.yaml
+helm install confluent cp-helm-charts -f value.yaml
 ```
 
 # Kafak Connect
