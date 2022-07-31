@@ -14,14 +14,14 @@ show archive_mode;
 show wal_level;
 ```
 
-- Restore Dump File
-```
-pg_restore -C -c -d postgres -h 172.30.3.6 -U postgres -W employees.dump
-```
-
 - Change user role
 ```
 ALTER USER postgres WITH REPLICATION;
+```
+
+- Restore Dump File
+```
+pg_restore -C -c -d postgres -h 172.30.3.8 -U postgres -W employees.dump
 ```
 
 # BigQuery
@@ -43,9 +43,9 @@ docker build . -t pg2bq-connect
 kubectl create secret generic creds --from-file=key.json=key.json
 ```
 
-- Pull Kafka charts
+- Clone Kafka charts
 ```
-git pull https://github.com/confluentinc/cp-helm-charts
+git clone https://github.com/confluentinc/cp-helm-charts
 ```
 
 - Deploy Kafka 
@@ -64,22 +64,22 @@ kubectl patch svc confluent-cp-kafka-connect -p '{"spec":{"type":"LoadBalancer"}
 
 - Create Postgres Connector
 ```
-curl -s -X POST -H 'Content-Type: application/json' --data @postgres-connect.json http://10.4.0.10:8083/connectors
+curl -s -X POST -H 'Content-Type: application/json' --data @postgres-connect.json http://35.192.81.119:8083/connectors
 ```
 
 - Check Postgres Connector status
 ```
-curl http://10.4.0.10:8083/connectors/postgres-connect/status
+curl http://35.192.81.119:8083/connectors/postgres-connect/status
 ```
 
 ### Google BigQuery Sink Connector
 
 - Create BigQuery Connector
 ```
-curl -s -X POST -H 'Content-Type: application/json' --data @kcbq-connect.json http://10.4.0.10:8083/connectors
+curl -s -X POST -H 'Content-Type: application/json' --data @kcbq-connect.json http://35.192.81.119:8083/connectors
 ```
 
 - Check BigQuery Connector status
 ```
-curl http://10.4.0.10:8083/connectors/kcbq-connect/status
+curl http://35.192.81.119:8083/connectors/kcbq-connect/status
 ```
