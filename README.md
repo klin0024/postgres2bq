@@ -83,3 +83,14 @@ curl -s -X POST -H 'Content-Type: application/json' --data @kcbq-connect.json ht
 ```
 curl http://35.192.81.119:8083/connectors/kcbq-connect/status
 ```
+
+# Result
+
+- Update Data
+![update](images/update.JPG)
+
+- BigQuery Before
+![before](images/before.JPG)
+
+- BigQuery After
+![after](images/after.JPG)
