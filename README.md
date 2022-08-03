@@ -96,4 +96,4 @@ curl http://35.192.81.119:8083/connectors/kcbq-connect/status
 
 - BigQuery After
 
-![after](images/.JPG)
+![after](images/after.JPG)
