@@ -86,11 +86,14 @@ curl http://35.192.81.119:8083/connectors/kcbq-connect/status
 
 # Result
 
-- Update Data
+- PostgreSQL Update Data
+
 ![update](images/update.JPG)
 
 - BigQuery Before
+
 ![before](images/before.JPG)
 
 - BigQuery After
-![after](images/after.JPG)
+
+![after](images/.JPG)
